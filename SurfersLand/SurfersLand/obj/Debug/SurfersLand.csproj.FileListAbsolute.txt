@@ -108,3 +108,5 @@ C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debu
 C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.pdb
 C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.InitialModel.resources
 C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.csproj.GenerateResource.cache
+C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.AddIsSubscribedToCustomer.resources
+C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.AddMembershipType.resources
