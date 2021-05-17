@@ -1,0 +1,27 @@
+﻿@model SurfersLand.ViewModels.RandomBoardVm
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@*
+This is multi line comment
+*@
+@{
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Board.Name</h2>
+@if (Model.Customers.Count == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <table class="table	table-bordered table-hover">
+        
+        @foreach (var customer in Model.Customers)
+        {
+        }
+    </table>
+}
