@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using SurfersLand.Models;
 using SurfersLand.ViewModels;
 
@@ -7,21 +10,26 @@ namespace SurfersLand.Controllers
 {
     public class BoardsController : Controller
     {
-        // GET
-        public ActionResult Random()
+        private ApplicationDbContext _context;
+
+        public BoardsController()
         {
-            var board = new Board() {Name = "Sharpeye"};
-            var customers = new List<Customer>
-            {
-                new Customer {Name = "Customer 1"},
-                new Customer {Name = "Customer 2"}
-            };
-            var viewModel = new RandomBoardVm()
-            {
-                Board = board,
-                Customers = customers
-            };
-            return View(viewModel);
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        // GET
+        public ActionResult Details(int id)
+        {
+            var board = _context.Boards.Include(b => b.BoardType).SingleOrDefault(b => b.Id == id);
+            if (board == null)
+                return HttpNotFound();
+
+            return View(board);
         }
 
         public ActionResult Edit(int id)
@@ -31,19 +39,9 @@ namespace SurfersLand.Controllers
 
         public ViewResult Index()
         {
-            var movies = GetBoards();
-            return View(movies);
+            var boards = _context.Boards.Include(b => b.BoardType).ToList();
+            return View(boards);
         }
-
-        private IEnumerable<Board> GetBoards()
-        {
-            return new List<Board>
-            {
-                new Board {Id = 1, Name = "Sharpeye"},
-                new Board {Id = 2, Name = "Lost"}
-            };
-        }
-
 
         [Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)

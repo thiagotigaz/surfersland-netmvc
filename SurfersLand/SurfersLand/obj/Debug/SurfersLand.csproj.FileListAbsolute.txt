@@ -114,3 +114,6 @@ C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debu
 C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.ApplyAnnotationsToCustomerName.resources
 C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.AddNameToMembershipTypes.resources
 C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.SetNameOfMembershipTypes.resources
+C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.AddBirthdateToCustomer.resources
+C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.AddBoardTypes.resources
+C:\Users\thiago\Documents\workspace\SurfersLand\SurfersLand\SurfersLand\obj\Debug\SurfersLand.Migrations.PopulateBoardTypes.resources

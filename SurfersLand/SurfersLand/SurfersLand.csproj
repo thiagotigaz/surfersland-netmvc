@@ -203,9 +203,22 @@
     <Compile Include="Migrations\202105180313047_SetNameOfMembershipTypes.Designer.cs">
       <DependentUpon>202105180313047_SetNameOfMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105180458287_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\202105180458287_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>202105180458287_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105180518291_AddBoardTypes.cs" />
+    <Compile Include="Migrations\202105180518291_AddBoardTypes.Designer.cs">
+      <DependentUpon>202105180518291_AddBoardTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105180518538_PopulateBoardTypes.cs" />
+    <Compile Include="Migrations\202105180518538_PopulateBoardTypes.Designer.cs">
+      <DependentUpon>202105180518538_PopulateBoardTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\BoardType.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -275,6 +288,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Boards\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +327,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105180313047_SetNameOfMembershipTypes.resx">
       <DependentUpon>202105180313047_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105180458287_AddBirthdateToCustomer.resx">
+      <DependentUpon>202105180458287_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105180518291_AddBoardTypes.resx">
+      <DependentUpon>202105180518291_AddBoardTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105180518538_PopulateBoardTypes.resx">
+      <DependentUpon>202105180518538_PopulateBoardTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
