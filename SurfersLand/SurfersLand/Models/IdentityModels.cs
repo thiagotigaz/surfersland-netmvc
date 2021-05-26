@@ -22,6 +22,8 @@ namespace SurfersLand.Models
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Board> Boards { get; set; }
+        public DbSet<MembershipType> MembershipTypes { get; set; }
+        public DbSet<BoardType> BoardTypes { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

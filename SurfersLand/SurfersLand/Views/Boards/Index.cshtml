@@ -5,7 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movies</h2>
+<h2>Boards</h2>
+<p>
+    @Html.ActionLink("New Board", "New", "Boards", new {@class = "btn btn-primary"})
+</p>
 <table class="table table-bordered table-hover">
     <thead>
     <tr>
@@ -17,7 +20,7 @@
     @foreach (var board in Model)
     {
         <tr>
-            <td>@Html.ActionLink(board.Name, "Details", "Boards", new {id = board.Id}, null)</td>
+            <td>@Html.ActionLink(board.Name, "Edit", "Boards", new {id = board.Id}, null)</td>
             <td>@board.BoardType.Name</td>
         </tr>
     }

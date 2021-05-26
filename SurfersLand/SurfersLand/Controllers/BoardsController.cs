@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -34,7 +35,18 @@ namespace SurfersLand.Controllers
 
         public ActionResult Edit(int id)
         {
-            return Content("id=" + id);
+            var board = _context.Boards.SingleOrDefault(b => b.Id == id);
+            if (board == null)
+            {
+                return HttpNotFound();
+            }
+
+            var vm = new BoardFormVm()
+            {
+                Board = board,
+                BoardTypes = _context.BoardTypes.ToList()
+            };
+            return View("BoardForm", vm);
         }
 
         public ViewResult Index()
@@ -47,6 +59,35 @@ namespace SurfersLand.Controllers
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
+        }
+
+        public ActionResult New()
+        {
+            var vm = new BoardFormVm
+            {
+                BoardTypes = _context.BoardTypes.ToList()
+            };
+            return View("BoardForm", vm);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Board board)
+        {
+            if (board.Id == 0)
+            {
+                board.DateAdded = DateTime.Now;
+                _context.Boards.Add(board);
+            }
+            else
+            {
+                var boardInDb = _context.Boards.Single(b => b.Id == board.Id);
+                boardInDb.Name = board.Name;
+                boardInDb.ReleaseDate = board.ReleaseDate;
+                boardInDb.BoardTypeId = board.BoardTypeId;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Boards");
         }
     }
 }

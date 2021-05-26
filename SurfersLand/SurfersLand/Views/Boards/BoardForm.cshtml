@@ -1,0 +1,29 @@
+﻿@model SurfersLand.ViewModels.BoardFormVm
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Board</h2>
+
+@using (Html.BeginForm("Save", "Boards"))
+{
+    <div class="form-group">
+        @Html.LabelFor(b => b.Board.Name)
+        @Html.TextBoxFor(m => m.Board.Name, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Board.BoardTypeId)
+        @Html.DropDownListFor(m => m.Board.BoardTypeId, new SelectList(Model.BoardTypes, "Id", "Name"), "Select Board Style", new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Board.ReleaseDate)
+        @Html.TextBoxFor(m => m.Board.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Board.NumberInStock)
+        @Html.TextBoxFor(m => m.Board.NumberInStock, new {@class = "form-control"})
+    </div>
+    @Html.HiddenFor(m => m.Board.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
