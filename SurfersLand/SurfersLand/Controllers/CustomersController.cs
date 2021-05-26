@@ -33,6 +33,7 @@ namespace SurfersLand.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var vm = new CustomerFormVm
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             return View("CustomerForm", vm);
@@ -49,6 +50,7 @@ namespace SurfersLand.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)

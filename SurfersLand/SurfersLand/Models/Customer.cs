@@ -12,6 +12,7 @@ namespace SurfersLand.Models
         public string Name { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Min18YearIfAMember]
         public DateTime? BirthDate { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }

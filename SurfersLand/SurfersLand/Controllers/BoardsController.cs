@@ -41,9 +41,8 @@ namespace SurfersLand.Controllers
                 return HttpNotFound();
             }
 
-            var vm = new BoardFormVm()
+            var vm = new BoardFormVm(board)
             {
-                Board = board,
                 BoardTypes = _context.BoardTypes.ToList()
             };
             return View("BoardForm", vm);
@@ -71,8 +70,18 @@ namespace SurfersLand.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Board board)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BoardFormVm(board)
+                {
+                    BoardTypes = _context.BoardTypes.ToList()
+                };
+                return View("BoardForm", viewModel);
+            }
+
             if (board.Id == 0)
             {
                 board.DateAdded = DateTime.Now;
@@ -84,7 +93,9 @@ namespace SurfersLand.Controllers
                 boardInDb.Name = board.Name;
                 boardInDb.ReleaseDate = board.ReleaseDate;
                 boardInDb.BoardTypeId = board.BoardTypeId;
+                boardInDb.NumberInStock = board.NumberInStock;
             }
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Boards");
